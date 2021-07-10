@@ -1,51 +1,85 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1559e2e3;
+body{
+background-color: var(--background-color);
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+overflow-y: hidden;
 }
+:root{
+  --background-color:#ffaf36;
 
-#my-form {
-    background-color: #eaeaff;
-    padding: 60px;
-    border-radius: 10px;
 }
-
-#my-form input {
-    display: block;
-    flex-flow: row wrap;
-    align-items: center;
-    width: 100%;
-    padding: 17px 22px;
-    margin: 18px 0;
-    box-sizing: border-box;
-    border: 1px solid black;
-    border-radius: 10px;
-    font-size: 15;
-    text-align: left;
+.main {
+  --rotate:0;
+  background-color: var(--bc);
+  height: var(--height);
+  width: var(--width);
+  transform: rotate(var(--rotate));
+  transform: translateX(var(tran));
 }
+.main .clock{
+  position: relative;
+  --bc: #dd81fe;
+  --width:400px;
+  --height:400px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-#my-form input.error {
-    border-color: rgb(156, 47, 47);
+
 }
-
-#my-form input.success {
-    border-color: #c3e6cb
+.main  .all{
+  position: absolute;
+  --bc:none;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
+.main .num1{--rotate:30deg;}
+.main .num2{--rotate:60deg;}
+.main .num3{--rotate:90deg;}
+.main .num4{--rotate:120deg;}
+.main .num5{--rotate:150deg;}
+.main .num6{--rotate:180deg;}
+.main .num7{--rotate:210deg;}
+.main .num8{--rotate:240deg;}
+.main .num9{--rotate:270deg;}
+.main .num10{--rotate:300deg;}
+.main .num11{--rotate:330deg;}
 
-span {
-    margin-left: 15px;
-    display: none;
+.clock::after{
+  position: absolute;
+  content: '';
+  background-color: black;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  z-index: 12;
+
 }
-
-span.spans {
-    display: inline-table;
-    color: red;
+.clock .hand{
+    --handRotate:0;
+  position: absolute;
+  bottom: 50%;
+  border-radius: 10px;
+  z-index: 10;
+  transform-origin: bottom;
+  transform:rotate(calc(var(--handRotate)*1deg));
 }
-
-p {
-    position: absolute;
-    color: white;
-    top: 20px;
-    font-size: 40px;
+ .hour{
+  background-color: green;
+  height: 170px;
+  width: 10px;
+}
+ .min{
+  background-color: red;
+  height: 160px;
+  width: 8px;
+}
+ .sec{
+  background-color: white;
+  height: 200px;
+  width: 2px;
 }
